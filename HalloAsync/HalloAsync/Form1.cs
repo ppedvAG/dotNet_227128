@@ -65,7 +65,7 @@ namespace HalloAsync
         }
 
         
-        private ValueTask<long> AlteLangesameFuncAsync(int zahl) 
+        private Task<long> AlteLangesameFuncAsync(int zahl) 
         {
             return Task.Run(() => AlteLangesameFunc(zahl));
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using System.Threading;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -9,6 +10,24 @@ internal class Program
     private static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
+
+        File.ReadAllBytes("");
+
+        HttpClient client = new HttpClient();
+
+        var client2 = new HttpClient();
+
+        HttpClient client3 = new();
+
+
+        //var client4 = new ();
+
+
+        string text = string.Empty;
+
+
+        string? nullText = null;
+
 
         HalloYield();
         Console.WriteLine("Ende");
