@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -9,6 +10,10 @@ internal class Program
     {
         Console.WriteLine("Hello, World!");
 
+        HalloYield();
+        Console.WriteLine("Ende");
+        Console.ReadKey();
+        return;
         var anoTyp = new { Text = "Hallo", zahl = 6_000_000 };
 
 
@@ -20,7 +25,7 @@ internal class Program
         {
             Console.WriteLine("T1 start");
             Thread.Sleep(1000);
-            throw new OutOfMemoryException();
+            //throw new OutOfMemoryException();
             Console.WriteLine("T1 Ende");
         });
 
@@ -35,6 +40,42 @@ internal class Program
         Console.WriteLine("Ende");
         Console.ReadKey();
     }
+
+    private static async void HalloYield()
+    {
+        await foreach (var item in GetTextsAAA())
+        {
+            Console.WriteLine(item);
+        }
+    }
+
+
+    static async IAsyncEnumerable<string> GetTextsAAA()
+    {
+        yield return "Hallo";
+        await Task.Delay(1000);
+        yield return "Welt";
+        await Task.Delay(1000);
+        yield return "was";
+        await Task.Delay(1000);
+        yield return "ist";
+        await Task.Delay(1000);
+        yield return "los?";
+    }
+
+    static List<string> GetTexts()
+    {
+        var list = new List<string>();
+        list.Add("Hallo");
+        list.Add("Welt");
+        list.Add("was");
+        list.Add("ist");
+        list.Add("los?");
+        return list;
+    }
+
+
+
 
     static void Zähle()
     {
