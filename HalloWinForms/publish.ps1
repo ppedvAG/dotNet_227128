@@ -1,0 +1,1 @@
+dotnet publish --framework net7.0-windows --output publish --self-contained true /property:PublishSingleFile=True /property:IncludeNativeLibrariesForSelfExtract=True
